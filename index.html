@@ -13,12 +13,23 @@
                 <form>
                     <input type="text" name="name" id="searchById" placeholder="Digite o ID do usuário">
                     <button type="button" id="search">Buscar usuário</button>
+                    <button type="button" id="listAll">listar todos</button>
                 </form>
             </div>
         </main>
+        <div id="createUser">
+            <h1>Criar Usuário</h1>
+            <form>
+                <input type="text" name="name" id="newUsername" placeholder="Nome">
+                <input type="email" name="email" id="Newuseremail" placeholder="E-mail">
+                <button type="button" id="create">Criar usuário</button>
+            </form>
+        </div>
         <div id="userList" class="hide">
                 <h1>Result search</h1>
-                <ul id="users"></ul>
+                <ul id="users">
+                    
+                </ul>
             </div>
     <script src="script.js"></script>
 </body>
