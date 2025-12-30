@@ -7,14 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
-        <div>
-            <button id="button">PUXAR USUÁRIOS</button>
-        </div>
-        <div id="customers">
-
-    </div>
-    </main>
+        <main>
+            <div id="searchUser">
+                <h1>Buscar Usuário</h1>
+                <form>
+                    <input type="text" name="name" id="searchById" placeholder="Digite o ID do usuário">
+                    <button type="button" id="search">Buscar usuário</button>
+                </form>
+            </div>
+        </main>
+        <div id="userList" class="hide">
+                <h1>Result search</h1>
+                <ul id="users"></ul>
+            </div>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,19 +1,30 @@
-const button = document.querySelector('#button');
-const caixa = document.querySelector('#customers');
+const input = document.querySelector('#searchById');
+const submit = document.querySelector('#search');
 
-async function loadCustomers() {
-    const response = await fetch('http://localhost:8080/customers');
-    const customers = await response.json();
+async function searchUser() {
+    const inputValue = input.value.trim();
 
-    caixa.innerHTML = '';
+    if (!inputValue) {
+        console.log('Please enter a user ID.');
+        return;
+    }
 
-    customers.forEach(customer => {
-        const div = document.createElement('div');
+    try {
+        const response = await fetch(`http://localhost:8080/customers/${inputValue}`);
 
-        div.innerHTML = `<strong>${customer.name}</strong><br> <span>${customer.email}</span><hr>`;
+        if (!response.ok) {
+            console.error("Erro:", response.status);
+            return;
+        }
 
-        caixa.appendChild(div);
-    }); 
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error("Erro na requisição:", error);
+    }
 }
 
-button.addEventListener('click', loadCustomers);
+submit.addEventListener('click', (e) => {
+    e.preventDefault();
+    searchUser();
+})
