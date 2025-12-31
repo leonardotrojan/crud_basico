@@ -137,4 +137,4 @@ createButton.addEventListener('click', async (e) => {
     } catch (error) {
         console.error("Erro na requisição de criação:", error);    
     }
-);
+});
